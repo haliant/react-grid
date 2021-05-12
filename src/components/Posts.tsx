@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Paper } from '@material-ui/core';
-import { SearchState, IntegratedFiltering } from '@devexpress/dx-react-grid';
+import { SearchState, IntegratedFiltering, SortingState, IntegratedSorting } from '@devexpress/dx-react-grid';
 import { Grid, Table, TableHeaderRow, SearchPanel, Toolbar } from '@devexpress/dx-react-grid-material-ui';
 
 import { updatePostsRequest } from '../redux/ducks/posts';
@@ -26,8 +26,10 @@ const Posts: React.FC = () => {
 			<Grid rows={postsList} columns={columns}>
 				<SearchState value={searchValue} onValueChange={setSearchState} />
 				<IntegratedFiltering />
+				<SortingState defaultSorting={[{ columnName: 'title', direction: 'asc' }]} />
+				<IntegratedSorting />
 				<Table />
-				<TableHeaderRow />
+				<TableHeaderRow showSortingControls/>
 				<Toolbar />
 				<SearchPanel />
 			</Grid>
