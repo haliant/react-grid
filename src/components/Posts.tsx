@@ -26,7 +26,7 @@ const Posts: React.FC = () => {
 			<Grid rows={postsList} columns={columns}>
 				<SearchState value={searchValue} onValueChange={setSearchState} />
 				<IntegratedFiltering />
-				<SortingState defaultSorting={[{ columnName: 'title', direction: 'asc' }]} />
+				<SortingState defaultSorting={[{ columnName: 'id', direction: 'asc' }]} />
 				<IntegratedSorting />
 				<Table />
 				<TableHeaderRow showSortingControls/>
